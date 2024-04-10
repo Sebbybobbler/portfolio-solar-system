@@ -21,16 +21,7 @@ function planetButtonClick(event) {
   // Also display the date on a particular planet a button was clicked.
   //Define Today's earth day and month
   const currentDate = new Date();
-  const day = Number(
-    currentDate.toLocaleDateString("en-GB", {
-      day: "2-digit",
-    })
-  );
-  const month = Number(
-    currentDate.toLocaleDateString("en-GB", {
-      month: "numeric",
-    })
-  );
+  const day = 30* Number(currentDate.getMonth()) + Number(currentDate.getDate());
   let period;
   switch (clickedButton.textContent) {
     case "Mercury":
@@ -58,35 +49,24 @@ function planetButtonClick(event) {
       period = 60148;
       break;
   }
-  console.log(period);
-  let otherPlanetYear = 2024;
-  let earthDays = 30 * month + day;
-  let inEarthDays = (period / 365) * earthDays;
-  if (period < 365) {
-    otherPlanetYear = Math.floor(2024 + 365 / period);
+  const newDayInMilliseconds= (day/period)*365*24*60*60*1000;
+  const beginningOfYearInMilliseconds = Date.parse(new Date("January 1, 2024 00:00:00"));
+  const dateOnPlanet = new Date(beginningOfYearInMilliseconds + newDayInMilliseconds); 
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   }
-  console.log(inEarthDays);
-  let otherPlanetMonths = Math.floor(((inEarthDays / period) * 365) / 12);
-  if (otherPlanetMonths === 0) {
-    otherPlanetMonths++;
-  }
-  if (otherPlanetMonths > 12 && period < 365) {
-    otherPlanetYear = otherPlanetYear + Math.floor(otherPlanetMonths / 12);
-    otherPlanetMonths = otherPlanetMonths % 12;
-  }
-  let otherPlanetDays = Math.ceil(((inEarthDays / period) * 365) % 30);
   var dateElement = document.querySelector(".date");
   dateElement.textContent =
     "The date on " +
     clickedButton.textContent +
     " is:" +
-    otherPlanetDays +
-    "/" +
-    otherPlanetMonths +
-    "/" +
-    otherPlanetYear;
-  console.log(period);
+    dateOnPlanet.toLocaleDateString("en-GB", options) + "*";
 
+  var asideElement = document.querySelector(".aside");
+  asideElement.textContent = "* How far into their own respective year each planet is, assuming circular orbits."  
   // remove selected state from all buttons
   planetButtonElements.forEach(updateClickedButtonState);
 
@@ -97,25 +77,4 @@ function planetButtonClick(event) {
 // remove the currently selected state for all buttons
 function updateClickedButtonState(planetButtonElement) {
   planetButtonElement.classList.remove("currently-selected-button");
-}
-
-function otherPlanetDate(period) {
-  let otherPlanetYear = 2024;
-  let inEarthDays = ((30 * month + day) / period) * 365;
-  if (inEarthDays > 365) {
-    inEarthDays = inEarthDays - 365;
-    otherPlanetYear++;
-  }
-  console.log(inEarthDays);
-  let otherPlanetMonths = Math.floor(inEarthDays / 30);
-  let otherPlanetDays = Math.floor(inEarthDays - otherPlanetMonths * 30);
-  console.log(inEarthDays);
-  return (
-    "The date on other planet is " +
-    otherPlanetDays +
-    "/" +
-    otherPlanetMonths +
-    "/" +
-    otherPlanetYear
-  );
 }
