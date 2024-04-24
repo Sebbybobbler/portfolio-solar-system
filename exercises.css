@@ -1,5 +1,5 @@
 html{
-    background-image: url("/images/stars.jpg");
+    background-image: url("./images/stars.jpg");
     background-size: cover;
     background-repeat:repeat-y;
     font-family: "Jersey 10";
@@ -23,7 +23,7 @@ h1{
 .overlay{
     display:flex;
     position:absolute;
-    background-image: url("/images/vecteezy_futuristic-gaming-overlay-image-with-abstract-shapes-modern_14040390.png");
+    background-image: url("./images/vecteezy_futuristic-gaming-overlay-image-with-abstract-shapes-modern_14040390.png");
     background-size: contain;
     background-repeat: no-repeat;
     align-content: center;
