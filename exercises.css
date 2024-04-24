@@ -1,3 +1,56 @@
+html{
+    background-image: url("/images/stars.jpg");
+    background-size: cover;
+    background-repeat:repeat-y;
+    font-family: "Jersey 10";
+    font-size: 17px;
+}
+
+
+
+h1{
+    display: flex;
+    color:green;
+    justify-content: center;
+}
+
+.planet-buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.overlay{
+    display:flex;
+    position:absolute;
+    background-image: url("/images/vecteezy_futuristic-gaming-overlay-image-with-abstract-shapes-modern_14040390.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-content: center;
+    justify-content: center;
+    padding: 35%;
+    max-width: 90%;
+    left:15vw;
+
+}
+
+.planet-text{
+    display:flex;
+    position:absolute;
+    top:15%;
+    left:10%;
+    max-width:80%;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    word-wrap: inherit;
+    color:green;
+    max-height:30%;
+}
+
+.result{
+    font-size: larger;
+}
+
 .planet {
     font-size: 24px;
     margin-bottom: 12px;
@@ -19,10 +72,13 @@
 button {
     margin: 5px;
     padding: 10px;
+    background-color:darkblue;
+    border-radius: 10px;
+    color:green
 }
 
 .currently-selected-button {
-    background: black;
+    background: red;
     color: orange;
 }
 
@@ -37,4 +93,14 @@ button {
 
 .currently-selected-planet {
     display: block;
+}
+
+
+@media (max-width:1100px) {
+
+
+    .planet-text{
+        overflow-y:scroll;
+    }
+    
 }
