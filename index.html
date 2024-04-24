@@ -10,8 +10,12 @@
             src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/cdn.min.js"
         ></script>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
     </head>
     <body>
+        <header></header>
         <h1>What is your favourite planet?</h1>
         <div class="planet-buttons">
             <button class="planet-button">Mercury</button>
@@ -23,11 +27,14 @@
             <button class="planet-button">Uranus</button>
             <button class="planet-button">Neptune</button>
         </div>
-        <div class="planet-text">
-            <p class="result"></p>
-            <p class="date"></p>
-            <p class="aside"></p>
-            <p class="info"></p>
+        <div class="overlay">
+            <div class="planet-text">
+                <span class="result"></span><br>
+                <span class="date"></span> <br>
+                <span class="aside"></span> <br>
+                <span class="info"></span> <br>
+            </div>
         </div>
+        <footer></footer>
     </body>
 </html>

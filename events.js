@@ -71,14 +71,14 @@ function planetButtonClick(event) {
   dateElement.textContent =
     "The date on " +
     clickedButton.textContent +
-    " is:" +
+    " is: " +
     dateOnPlanet.toLocaleDateString("en-GB", options) + "*";
 
   var infoElement = document.querySelector(".info");
   infoElement.textContent = info;
   
   var asideElement = document.querySelector(".aside");
-  asideElement.textContent = "* How far into their own respective year each planet is, assuming circular orbits."  
+  asideElement.textContent = "* If we start from 1st of January " +currentDate.toLocaleString("en-GB",{year:"numeric"}) +" , how far through the calendar year this planet is based on it's orbit."  
   // remove selected state from all buttons
   planetButtonElements.forEach(updateClickedButtonState);
 
