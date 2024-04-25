@@ -78,7 +78,7 @@ function planetButtonClick(event) {
   infoElement.textContent = info;
   
   var asideElement = document.querySelector(".aside");
-  asideElement.textContent = "* If we start from 1st of January " +currentDate.toLocaleString("en-GB",{year:"numeric"}) +" , how far through the calendar year this planet is based on it's orbit."  
+  asideElement.textContent = "* If we start from 1st of January " +currentDate.toLocaleString("en-GB",{year:"numeric"}) +" , how far through their calendar year this planet is based on it's orbit."  
   // remove selected state from all buttons
   planetButtonElements.forEach(updateClickedButtonState);
 
